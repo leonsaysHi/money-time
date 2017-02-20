@@ -2,6 +2,7 @@ body {
 	background: #ece7e7;
 }
 .currentPrice {
+	overflow: hidden;
 	flex: 5 0 0;
 	text-align: center;
 	align-content: center;
@@ -9,17 +10,45 @@ body {
 
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-  justify-content: center;
-	&.is-success {
-		background-color: $success;
+
+	.prices {
+
+		flex: 1 0 0;
+
+		display: flex;
+		flex-direction: column;
+		.price {
+
+			flex: 1 0 100%;
+			justify-content: center;
+			align-content: center;
+
+			display: flex;
+			align-items: center;
+			&.is-success {
+				background-color: $success;
+			}
+			&.is-danger {
+				background-color: $danger;
+			}
+			&.is-warning {
+				background-color: $warning;
+			}
+		}
+
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+		transform: translateY(0);
+		&.show-warning {
+			transform: translateY(-100%);
+		}
+		&.show-danger {
+			transform: translateY(-200%);
+		}
 	}
-	&.is-danger {
-		background-color: $danger;
-	}
-	&.is-warning {
-		background-color: $warning;
-	}
+
 }
 .currentScore {
 	flex: 1 0 0;

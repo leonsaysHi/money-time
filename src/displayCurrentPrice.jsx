@@ -26,12 +26,13 @@ class DisplayCurrentPrice extends React.Component {
       }
       return cp;
     }, 0);
-    let priceString = priceStatus > 0 ? '-0.50€' : priceStatus < 0 ? '+0.50€' : '0€';
 
     return (
-      <div className={"tile is-child currentPrice " + (priceStatus > 0 ? "is-success" : priceStatus < 0 ? "is-danger" : "is-warning")}>
-        <div className="content">
-          {priceString}
+      <div className="tile is-child currentPrice">
+        <div className={"prices " + (priceStatus > 0 ? "show-success" : priceStatus < 0 ? "show-danger" : "show-warning")}>
+          <div className="price is-success"><div>+0.50€</div></div>
+          <div className="price is-warning"><div>0€</div></div>
+          <div className="price is-danger"><div>-0.50€</div></div>
         </div>
       </div>
     )
