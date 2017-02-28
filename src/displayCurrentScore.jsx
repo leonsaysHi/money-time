@@ -22,7 +22,6 @@ class DisplayCurrentScore extends React.Component {
       return scores;
     }, [0, 0]);
 
-    console.log(gameScores);
     return (
       <div className="tile is-child currentScore">
 

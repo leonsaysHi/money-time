@@ -6,11 +6,23 @@ class Command extends React.Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
-      key: {}
+      'key': {},
+      'started': false
     };
 
     this.newCommand = props.onNewCommand.bind(this);
+  }
+
+  startApp = () => {
+    console.log('start');
+      this.setState({'started': true});
+  }
+
+  pauseApp = () => {
+    console.log('pause');
+      this.setState({'started': false});
   }
 
   render() {
@@ -29,10 +41,26 @@ class Command extends React.Component {
     };
 
     return (
-      <div>
-        <HotKeys keyMap={keyMap} handlers={handlers}>
-          <input />
-        </HotKeys>
+      <div id="command" className={(this.state.started ? 'started' : '')}>
+        <div className="content-wrapper">
+          <div className="instructs">
+            <div>
+              <div>+</div><div>Ajouter un point à l'équipe locale</div>
+            </div>
+            <div>
+              <div>-</div><div>Ajouter un point aux adversaires</div>
+            </div>
+            <div>
+              <div>↵</div><div>Fin du quart-temps</div>
+            </div>
+            <div>
+              <div>⌫</div><div>Annuler la dernière instruction</div>
+            </div>
+          </div>
+          <HotKeys keyMap={keyMap} handlers={handlers} onFocus={this.startApp} onBlur={this.pauseApp}>
+            <input />
+          </HotKeys>
+        </div>
       </div>
     )
   }

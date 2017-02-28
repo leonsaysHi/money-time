@@ -29,7 +29,6 @@ class App extends React.Component {
       if (accu.length === 0 || comm === '=') {
         accu.push(new Period());
       } else {
-        console.log(accu);
         let p = accu[accu.length-1];
         switch (comm) {
           case '+':
