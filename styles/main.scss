@@ -1,5 +1,6 @@
-body {
+html, body {
 	background: #ece7e7;
+	overflow: hidden;
 }
 #app {
 	position:relative;
@@ -73,7 +74,8 @@ body {
 	flex: 5 0 0;
 	text-align: center;
 	align-content: center;
-	font-size: 5rem;
+	font-weight: bold;
+	font-size: 15rem;
 
 	display: flex;
 	flex-direction: column;
@@ -123,6 +125,72 @@ body {
 
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: stretch;
   justify-content: center;
+
+	.scores {
+		&.is-success {
+			background-color: $success;
+		}
+		&.is-warning {
+			background-color: $warning;
+		}
+		&.is-danger {
+			background-color: $danger;
+		}
+	}
+	.currentPeriod {
+		flex: 2 0 0;
+		position: relative;
+		.scores {
+			position: absolute;
+			top: 10px; bottom: 0;
+			display: flex;
+			align-items: center;
+		  justify-content: center;
+			div {
+				font-size: 30px;
+			}
+			transition: all 1s ease;
+			&.is-success {
+				left: 30%;
+				right: 30%;
+				&.m { right: 20%; }
+				&.l { right: 10%; }
+				&.xl { right: 0; }
+			}
+			&.is-warning {
+				left: 30%;
+				right: 30%;
+			}
+			&.is-danger {
+				left: 30%;
+				right: 30%;
+				&.m { left: 20%; }
+				&.l { left: 10%; }
+				&.xl { left: 0; }
+			}
+		}
+	}
+	.gameSummary {
+		flex: 1 0 0;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		&__periods {
+			flex: 4 0 0;
+			text-align: left;
+			.scores {
+				display: inline-block;
+				padding: .5em;
+				width: 12%;
+				margin: 0 .5em;
+				text-align: center;
+			}
+		}
+		&__Scores {
+			flex: 1 0 0;
+			font-size: 30px;
+		}
+	}
 }
